@@ -19,8 +19,16 @@ def on_startup():
     print("Бот онлайн")
 
 
+@dp.message_handler(commands=["help"])
+def command_help(message: types.Message):
+    f = open("help.txt", encoding="UTF-8")
+    s = f.read()
+    f.close()
+    return message.reply(s)
+
+
 @dp.message_handler(commands=["lunch"])
-def lunch(message: types.Message):
+def command_lunch(message: types.Message):
     # посмотреть текущий обэд
     f = open("lunch.txt", "r")
     cur_lunch = f.read()
@@ -30,7 +38,7 @@ def lunch(message: types.Message):
 
 
 @dp.message_handler(commands=["set_lunch"])
-def set_lunch(message: types.Message):
+def command_set_lunch(message: types.Message):
     # установить обэд
     f = open("lunch.txt", "w")
     f.write(re.search("""([А-я\s,.])+""", message.text).group())
@@ -39,7 +47,7 @@ def set_lunch(message: types.Message):
 
 
 @dp.message_handler(commands=["edit_lunch"])
-def edit_lunch(message: types.Message):
+def command_edit_lunch(message: types.Message):
     # редактирование обэда (если в санни дей что-то закончилось и подают другое)
     f = open("lunch.txt", "w")
     f.write(re.search("""([А-я\s,.])+""", message.text).group())
