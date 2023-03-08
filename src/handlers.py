@@ -1,3 +1,4 @@
+# добавить пиздюли за пустые команды set и edit, форматирование текста, решить проблему чат-террористов
 from aiogram import types, Dispatcher
 import re
 import datetime
