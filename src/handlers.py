@@ -78,7 +78,7 @@ def command_edit_lunch(message: types.Message):
 
 
 def register_handlers(dp: Dispatcher):
-    dp.register_message_handler(command_help, commands="help")
+    dp.register_message_handler(command_help, commands=["help", "start"])
     dp.register_message_handler(command_lunch, commands="lunch")
     dp.register_message_handler(command_set_lunch, commands="set_lunch")
     dp.register_message_handler(command_edit_lunch, commands="edit_lunch")
