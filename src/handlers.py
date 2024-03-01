@@ -19,7 +19,7 @@ def command_help(message: types.Message):
 def command_lunch(message: types.Message):
     # посмотреть текущий обэд
     global cur_day, name, cur_time
-    f = open("lunch.txt", "r")
+    f = open("lunch.txt", "r", encoding="UTF-8")
     cur_lunch = f.read()
     if cur_lunch == "":
         return message.reply("Нет информации")
@@ -47,7 +47,7 @@ def command_set_lunch(message: types.Message):
                 continue
     else:
         return message.reply("Пустое сообщение")
-    f = open("lunch.txt", "w")
+    f = open("lunch.txt", "w", encoding="UTF-8")
     f.write(s)
     f.close()
     return message.reply("Состав обеда на сегодня добавлен")
@@ -71,7 +71,7 @@ def command_edit_lunch(message: types.Message):
                 continue
     else:
         return message.reply("Пустое сообщение")
-    f = open("lunch.txt", "w")
+    f = open("lunch.txt", "w", encoding="UTF-8")
     f.write(s)
     f.close()
     return message.reply("Состав обеда обновлён")
